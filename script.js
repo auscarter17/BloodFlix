@@ -63,7 +63,7 @@ form.addEventListener('submit', (e) => {
     const searchTerm = search.value;
 
     if (searchTerm && searchTerm !== '') {
-        getMovies(SEARCH_API + searchTerm + '&genre_ids=27')
+        getMovies(SEARCH_API + searchTerm)
 
         search.value=''
     } else {
