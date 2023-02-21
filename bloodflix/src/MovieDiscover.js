@@ -8,37 +8,48 @@ const IMG_PATH = 'https://image.tmdb.org/t/p/w1280';
 export default function MovieDiscover() {
     
     const [movies, setMovies] = useState([]);    
-
     
     useEffect(() => {
         fetch(API_URL)
             .then((response) => response.json())
             .then((data) => {
-                console.log(data);
-                setMovies(data);
+                setMovies(data.results);
+                console.log(movies)
             })
             .catch((err) => {
                 console.log(err.message)
             })
     }, [])
-    
 
-    
-    if (!movies.length) return(
-        <div>No Data</div>
-    )
-
+    function getClassByRating(vote) {
+        if (vote >= 8) {
+            return 'green'
+        } else if (vote >= 5) {
+            return 'orange'
+        } else {
+            return 'red'
+        }
+    }
 
     return (
-        <div id="main">
-            {movies.map((movie) => {
+        <main id="main">
+            {movies.map((movie) => (
                 <div key={movie.id} className='movie'>
-                    <h3>{movie.name}</h3>
+                    <img src={IMG_PATH + movie.poster_path} alt={movie.title} />
+                    <div className='movie-info'>
+                        <h3>{movie.title}</h3>
+                        <span class={getClassByRating(movie.vote_average)}>{movie.vote_average}</span>
+                    </div>
+                    <div className='overview'>
+                        <h3>{movie.title}</h3>
+                        {movie.overview}
+                    </div>
                 </div>
-            })}
-        </div>
+            ))}
+            
+        </main>
     )
 
     
-            }
+}
 
