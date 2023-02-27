@@ -1,0 +1,9 @@
+.search {
+  display: flex;
+  justify-content: end;
+  border: none;
+}
+
+.btn {
+  cursor: pointer;
+}
