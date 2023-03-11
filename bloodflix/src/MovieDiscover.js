@@ -38,7 +38,7 @@ export default function MovieDiscover() {
                     <img src={IMG_PATH + movie.poster_path} alt={movie.title} />
                     <div className='movie-info'>
                         <h3>{movie.title}</h3>
-                        <span class={getClassByRating(movie.vote_average)}>{movie.vote_average}</span>
+                        <span className={getClassByRating(movie.vote_average)}>{movie.vote_average}</span>
                     </div>
                     <div className='overview'>
                         <h3>{movie.title}</h3>

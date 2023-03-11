@@ -7,7 +7,9 @@ const SEARCH_API = 'https://api.themoviedb.org/3/search/movie?api_key=293c14281a
 export default function Search() {
   const [searchFilter, setSearchFilter] = useState([]);
 
-
+  useEffect(() => {
+    fetch(SEARCH_API)
+  })
 
   return (
     <div className='search'>
